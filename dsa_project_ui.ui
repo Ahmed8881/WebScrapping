@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Window</class>
+ <widget class="QDialog" name="Window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1489</width>
+    <height>779</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Scrapper</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #0B192C;</string>
+  </property>
+  <widget class="QTableView" name="data_view">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>1181</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView {
+    background-color: #33372C;
+    border-radius: 10px;
+    border: 1px solid #5A5A5A;
+    color: whitesmoke;
+    gridline-color: #5A5A5A;
+}
+
+QHeaderView::section {
+    background-color: #5A5A5A;
+    color: whitesmoke;
+    padding: 4px;
+    border: 1px solid #3C3D37;
+}
+
+QTableView::item {
+    border: none;
+    padding: 4px;
+}
+
+QTableView::item:selected {
+    background-color: #6A6A6A;
+    color: white;
+}</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>140</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>70</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>730</y>
+     <width>361</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    border: 2px solid #693DC3; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #E6E6FA, stop:1 #D9D9D9); /* Light gradient background */
+    padding: 20px; /* Padding inside the frame */
+}
+
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>331</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Trebuchet MS</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: #FF6500;
+    text-align: center;
+}</string>
+    </property>
+    <property name="text">
+     <string>0.0000</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>0</y>
+     <width>231</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Trebuchet MS</family>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+color:whitesmoke;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Web Minner</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="txt_algorithm">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>200</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0.5px solid whitesmoke;
+border-radius:5px;
+color:whitesmoke;
+padding:0px auto;
+font-size:15px;
+font-weight:500;
+
+</string>
+   </property>
+   <property name="currentText">
+    <string>Bubble Sort</string>
+   </property>
+   <property name="minimumContentsLength">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Bubble Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Insertion Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Merge Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Selection Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Quick Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Hybrid Merge Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Count Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Bucket Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Radix Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Heap Sort</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Shell Sort</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="txt_sorting_base">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>200</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0.5px solid whitesmoke;
+border-radius:5px;
+color:whitesmoke;
+padding:0px auto;
+font-size:15px;
+font-weight:500;
+
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Ascending</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Descending</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>200</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Start Sorting</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>650</y>
+     <width>761</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Trebuchet MS</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QProgressBar {
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+QProgressBar::chunk {
+    background-color: #FF6500; /* Set the filling color here */
+    width: 20px;
+}</string>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_url">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>140</y>
+     <width>461</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Trebuchet MS&quot;;
+border-radius:5px;
+border:0.5px solid white;
+padding:4px auto;
+color:whitesmoke;
+</string>
+   </property>
+   <property name="placeholderText">
+    <string>Paste url to scrap ....</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_search">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>200</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Trebuchet MS&quot;;
+border-radius:5px;
+border:0.5px solid white;
+padding:4px auto;
+color:whitesmoke;
+</string>
+   </property>
+   <property name="placeholderText">
+    <string>Search ..</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_scrap">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>140</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Scrap</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="scarpping_bar">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>690</y>
+     <width>761</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Trebuchet MS</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QProgressBar {
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+QProgressBar::chunk {
+    background-color: #FF6500; /* Set the filling color here */
+    width: 20px;
+}</string>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>650</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Trebuchet MS</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+color:whitesmoke;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Sorting</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>690</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Trebuchet MS</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+color:whitesmoke;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Scrapping</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_search">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>200</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+
+/* Tooltip styling */
+QToolTip {
+    background-color: black; /* Background color of the tooltip */
+    color: white; /* Text color of the tooltip */
+    border: 1px solid white; /* Border color of the tooltip */
+    font-size: 12px; /* Font size for the tooltip text */
+    padding: 5px; /* Padding inside the tooltip */
+    border-radius: 5px; /* Rounded corners for the tooltip */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>10</y>
+     <width>341</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/newPrefix/logo.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>60</y>
+     <width>501</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    border: 2px solid whitesmoke;  /* Set the border color and width */
+    border-radius: 10px;        /* Set the corner radius */
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>391</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Trebuchet MS</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+color:whitesmoke;
+
+</string>
+    </property>
+    <property name="text">
+     <string>For Url : https://catalog.data.gov/dataset/</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_start">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_stop">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>70</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_pause">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>70</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_Resume">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>70</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 0.5px solid whitesmoke;
+    color: white; /* Change text color for better contrast */
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #693DC3, stop:1 black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+QPushButton:hover {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #5728A1, stop:1 #1A1A1A); /* Darker gradient for deeper effect */
+    color: #F1F1F1; /* Lightened text color on hover */
+}
+
+QPushButton:pressed {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 rgba(105, 61, 195, 0.9), stop:1 rgba(0, 0, 0, 0.8)); /* Slightly darker gradient */
+    color: #E0E0E0; /* Even lighter text color when pressed */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Resume</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QComboBox" name="txt_searching_base">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>200</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:0.5px solid whitesmoke;
+border-radius:5px;
+color:whitesmoke;
+padding:0px auto;
+font-size:15px;
+font-weight:500;
+
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Contains</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Start with</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ends with</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,12 @@
+{
+  "venvPath": "/home/hamid/miniconda3/envs",
+  "venv": "dsaLab",
+  "reportGeneralTypeIssues": "none",
+  "reportMissingTypeStubs": "false",
+  "reportAttributeAccessIssue": false,
+  "reportIndexIssue": false,
+  "reportOptionalMemberAccess": false,
+  "reportCallIssue": false,
+  "reportArgumentType": false,
+  "reportOptionalSubScript": false
+}

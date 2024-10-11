@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>../../../Downloads/web-scraping-text-written-over-260nw-2435079055__2_-removebg-preview.png</file>
+    <file>../logo.png</file>
+  </qresource>
+</RCC>
