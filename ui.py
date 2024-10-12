@@ -7,8 +7,6 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
-
 class Ui_Window(object):
     def setupUi(self, Window):
         Window.setObjectName("Window")
