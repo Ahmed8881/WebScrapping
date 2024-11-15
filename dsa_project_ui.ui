@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1489</width>
+    <width>1232</width>
     <height>779</height>
    </rect>
   </property>
@@ -160,7 +160,7 @@ color:whitesmoke;
   <widget class="QComboBox" name="txt_algorithm">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>50</x>
      <y>200</y>
      <width>221</width>
      <height>41</height>
@@ -244,7 +244,7 @@ font-weight:500;
   <widget class="QComboBox" name="txt_sorting_base">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>290</x>
      <y>200</y>
      <width>221</width>
      <height>41</height>
@@ -274,9 +274,9 @@ font-weight:500;
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>530</x>
      <y>200</y>
-     <width>171</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -351,7 +351,7 @@ QProgressBar::chunk {
   <widget class="QLineEdit" name="txt_url">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>50</x>
      <y>140</y>
      <width>461</width>
      <height>41</height>
@@ -372,9 +372,9 @@ color:whitesmoke;
   <widget class="QLineEdit" name="txt_search">
    <property name="geometry">
     <rect>
-     <x>710</x>
+     <x>780</x>
      <y>200</y>
-     <width>211</width>
+     <width>271</width>
      <height>41</height>
     </rect>
    </property>
@@ -393,9 +393,9 @@ color:whitesmoke;
   <widget class="QPushButton" name="btn_scrap">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>530</x>
      <y>140</y>
-     <width>171</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -524,9 +524,9 @@ color:whitesmoke;
   <widget class="QPushButton" name="btn_search">
    <property name="geometry">
     <rect>
-     <x>1110</x>
+     <x>1060</x>
      <y>200</y>
-     <width>101</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -575,7 +575,7 @@ QToolTip {
     <rect>
      <x>260</x>
      <y>10</y>
-     <width>341</width>
+     <width>431</width>
      <height>111</height>
     </rect>
    </property>
@@ -589,9 +589,9 @@ QToolTip {
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>710</x>
+     <x>780</x>
      <y>60</y>
-     <width>501</width>
+     <width>431</width>
      <height>121</height>
     </rect>
    </property>
@@ -610,7 +610,7 @@ QToolTip {
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>20</x>
       <y>20</y>
       <width>391</width>
       <height>31</height>
@@ -637,7 +637,7 @@ color:whitesmoke;
    <widget class="QPushButton" name="btn_start">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>70</y>
       <width>91</width>
       <height>41</height>
@@ -676,7 +676,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_stop">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>110</x>
       <y>70</y>
       <width>91</width>
       <height>41</height>
@@ -715,7 +715,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_pause">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>210</x>
       <y>70</y>
       <width>91</width>
       <height>41</height>
@@ -754,7 +754,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_Resume">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>310</x>
       <y>70</y>
       <width>111</width>
       <height>41</height>
@@ -790,41 +790,6 @@ QPushButton:pressed {
      <string>Resume</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QComboBox" name="txt_searching_base">
-   <property name="geometry">
-    <rect>
-     <x>930</x>
-     <y>200</y>
-     <width>171</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:0.5px solid whitesmoke;
-border-radius:5px;
-color:whitesmoke;
-padding:0px auto;
-font-size:15px;
-font-weight:500;
-
-</string>
-   </property>
-   <item>
-    <property name="text">
-     <string>Contains</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Start with</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Ends with</string>
-    </property>
-   </item>
   </widget>
  </widget>
  <resources>

@@ -60,17 +60,17 @@ class SortWorker(QtCore.QThread):
         end_time = time.perf_counter()
         run_time = end_time - start_time
 
-        self.finished.emit(sorted_df, run_time)  
+        self.finished.emit(sorted_df, run_time)  # Emit sorted DataFrame and runtime
 
     def emit_progress(self, progress):
         self.progress.emit(progress)
 
     def emit_error(self, title, message):
-        self.error.emit(title, message)  
-        
+        self.error.emit(title, message)  # Emit error signal
+
     @QtCore.pyqtSlot(str, str)
     def show_error_message(self, title, message):
-        QtWidgets.QMessageBox.warning(None, title, message)
+        QtWidgets.QMessageBox.critical(None, title, message)
 
 
 class MyApp(QtWidgets.QDialog):
@@ -137,56 +137,27 @@ class MyApp(QtWidgets.QDialog):
         self.ui.data_view.setModel(model)
 
     def search(self):
-        search_term = self.ui.txt_search.text().lower()
-        filter_type = self.ui.txt_searching_base.currentText()
+        search_term = (
+            self.ui.txt_search.text()
+        )  # Get the search term from the search bar
 
-        # Reset the table if no search term is provided
         if not search_term:
             self.load_data()
             QtWidgets.QMessageBox.warning(
-                None, "Error", "Enter something to search. All data loaded."
+                self, "Error", f"Enter something to search All data loaded"
             )
             return
 
-        # Check if a valid filter type is selected
-        if not filter_type:
-            QtWidgets.QMessageBox.warning(
-                None, "Error", "Select a search type (contains, starts with, ends with)."
-            )
-            return
-
-        # Copy the original DataFrame to filter
+        # Start with the original DataFrame
         filtered_df = self.df.copy()
 
-        # Apply the selected filter type
-        if filter_type == "Contains":
-            filtered_df = filtered_df[
-                filtered_df.apply(
-                    lambda row: row.astype(str).str.contains(search_term, case=False).any(),
-                    axis=1,
-                )
-            ]
-        elif filter_type == "Start with":
-            filtered_df = filtered_df[
-                filtered_df.apply(
-                    lambda row: row.astype(str).str.lower().str.startswith(search_term).any(),
-                    axis=1,
-                )
-            ]
-        elif filter_type == "Ends with":
-            filtered_df = filtered_df[
-                filtered_df.apply(
-                    lambda row: row.astype(str).str.lower().str.endswith(search_term).any(),
-                    axis=1,
-                )
-            ]
-
-        # Check if the filtered DataFrame is empty
-        if filtered_df.empty:
-            QtWidgets.QMessageBox.information(
-                None, "No Results", "No matching results found."
+        # Filter the DataFrame based on the search term
+        filtered_df = filtered_df[
+            filtered_df.apply(
+                lambda row: row.astype(str).str.contains(search_term, case=False).any(),
+                axis=1,
             )
-            return
+        ]
 
         # Clear the existing model
         model = QtGui.QStandardItemModel()
@@ -199,7 +170,6 @@ class MyApp(QtWidgets.QDialog):
 
         # Set the model in the data view
         self.ui.data_view.setModel(model)
-        self.ui.data_view.update()  # Ensure the view is updated
 
     def validate_sorting(self, algorithm_name, column_data):
         if algorithm_name == "Radix Sort":
@@ -210,8 +180,8 @@ class MyApp(QtWidgets.QDialog):
                 or num < 0
                 for num in column_data
             ):
-                QtWidgets.QMessageBox.warning(
-                    None,
+                QtWidgets.QMessageBox.critical(
+                    self,
                     "Error",
                     "Radix Sort does not support strings, negative, or floating-point values.",
                 )
@@ -221,16 +191,16 @@ class MyApp(QtWidgets.QDialog):
                 isinstance(num, str) or isinstance(num, float) or num < 0
                 for num in column_data
             ):
-                QtWidgets.QMessageBox.warning(
-                    None,
+                QtWidgets.QMessageBox.critical(
+                    self,
                     "Error",
                     "Counting Sort does not support strings, negative, or floating-point values.",
                 )
                 return False
         elif algorithm_name == "Bucket Sort":
             if any(isinstance(num, str) or num < 0 for num in column_data):
-                QtWidgets.QMessageBox.warning(
-                    None,
+                QtWidgets.QMessageBox.critical(
+                    self,
                     "Error",
                     "Bucket Sort does not support strings or negative values.",
                 )
@@ -244,15 +214,15 @@ class MyApp(QtWidgets.QDialog):
         selected_columns = self.ui.data_view.selectionModel().selectedColumns()
 
         if not selected_columns:
-            QtWidgets.QMessageBox.warning(
-                None, "Error", "No columns selected for sorting."
+            QtWidgets.QMessageBox.critical(
+                self, "Error", "No columns selected for sorting."
             )
             return
 
         algorithm = self.algorithms.get(algorithm_name)
         if not algorithm:
-            QtWidgets.QMessageBox.warning(
-                None, "Error", f"Algorithm '{algorithm_name}' not found."
+            QtWidgets.QMessageBox.critical(
+                self, "Error", f"Algorithm '{algorithm_name}' not found."
             )
             return
 
@@ -291,18 +261,16 @@ class MyApp(QtWidgets.QDialog):
         self.ui.label_5.setText(f"Runtime: {run_time:.3f} seconds")
 
     def on_sort_error(self, title, message):
-        QtWidgets.QMessageBox.warning(None, title, message)
+        QtWidgets.QMessageBox.critical(self, title, message)
 
     def scrap_data(self):
-        url = self.ui.txt_url.text()  
-        if not url.startswith("https://"):
-            QtWidgets.QMessageBox.warning(None, "Error", "URL must start with 'https://'")
+        if not self.ui.txt_url.text():
+            QtWidgets.QMessageBox.critical(self, "Error", "Please enter a URL.")
             return
+        url = self.ui.txt_url.text()  # Get URL from the text field
 
-        try:
-            asyncio.run(RunTimeScrapping.scrape_and_save(url))
-        except Exception as e:
-            QtWidgets.QMessageBox.warning(None, "Error", f"An error occurred: {str(e)}")
+        # Run the async scrape_and_save function using asyncio
+        asyncio.run(RunTimeScrapping.scrape_and_save(url))
 
 
 if __name__ == "__main__":
@@ -312,4 +280,4 @@ if __name__ == "__main__":
         window.show()
         sys.exit(app.exec())
     except Exception as e:
-        QtWidgets.QMessageBox.warning(None, "Error", f"An error occurred: {str(e)}")
+        QtWidgets.QMessageBox.critical(None, "Error", f"An error occurred: {str(e)}")
