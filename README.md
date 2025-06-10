@@ -33,7 +33,7 @@ A robust web scraping application built with Python that features a graphical us
 ## Installation
 1. Clone the repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/Ahmed8881/WebScrapping.git
 ```
 
 2. Install required dependencies:
